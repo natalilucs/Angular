@@ -1,0 +1,26 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Matricula</th>
+        <th scope="col">Media</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <!-- -->
+      <tr scope="row" *ngFor="let student of students" [ngClass]="{'table-success':student.status=='APPROVED', 'table-danger':student.status=='DISAPPROVED'}" >
+        <td>{{student.name}}</td>
+        <td>{{student.matriculation}}</td>
+        <td>{{student.average}}</td>
+        <td>{{student.status}}</td>
+        <td>
+          <button class="btn btn-warning" (click)="edit(student)">Edit</button>
+          <button class="btn btn-danger" (click)="delete(student)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
